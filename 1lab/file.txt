@@ -1,0 +1,2 @@
+Some words in ./ ./\.
+file _//.
