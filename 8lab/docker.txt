@@ -1,0 +1,9 @@
+docker run -d -P --name test_sshd rastasheep/ubuntu-sshd:14.04
+docker port test_sshd 22 #поднять сервак
+docker cp ~/.ssh/id_rsa.pub test_sshd:/root/.ssh/authorized_keys
+docker exec test_sshd chown root:root /root/.ssh/authorized_keys
+ssh -p 49155 root@localhost
+ls -la
+cd .ssh
+cat authorized_keys #намутить RSA. Надо иметь установленный OpenSSH на системе.
+#стандартный пароль на контейнере - root. Пользователь так же root
